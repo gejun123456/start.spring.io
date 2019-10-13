@@ -26,6 +26,7 @@ import io.spring.initializr.metadata.InitializrMetadata;
 import io.spring.start.site.extension.dependency.flyway.FlywayProjectContributor;
 import io.spring.start.site.extension.dependency.liquibase.LiquibaseProjectContributor;
 import io.spring.start.site.extension.dependency.lombok.LombokGradleBuildCustomizer;
+import io.spring.start.site.extension.dependency.mybatis.MybatisProjectContributor;
 import io.spring.start.site.extension.dependency.reactor.ReactorTestBuildCustomizer;
 import io.spring.start.site.extension.dependency.springbatch.SpringBatchTestBuildCustomizer;
 import io.spring.start.site.extension.dependency.springkafka.SpringKafkaBuildCustomizer;
@@ -100,6 +101,13 @@ public class DependencyProjectGenerationConfiguration {
 	@ConditionalOnRequestedDependency("liquibase")
 	public LiquibaseProjectContributor liquibaseProjectContributor() {
 		return new LiquibaseProjectContributor();
+	}
+
+
+	@Bean
+	@ConditionalOnRequestedDependency("mybatis")
+	public MybatisProjectContributor mybatisProjectContributor() {
+		return new MybatisProjectContributor();
 	}
 
 }
