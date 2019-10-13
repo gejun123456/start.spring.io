@@ -470,8 +470,8 @@ initializr:
               version: 2.1.0
 
         - name: MyBatis PageHelper Support
-          id: mybatis-pageHelper
-          description: Persistence framework with support for custom SQL, stored procedures and advanced mappings. MyBatis couples objects with stored procedures or SQL statements using a XML descriptor or annotations.
+          id: mybatis-pagehelper
+          description: Page support for mybatis framework.
           links:
             - rel: guide
               href: https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/en/HowToUse.md

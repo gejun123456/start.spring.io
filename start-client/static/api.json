@@ -406,6 +406,20 @@
             }
           },
           {
+            "id": "mybatis-pagehelper",
+            "name": "MyBatis PageHelper Framework",
+            "description": "Page Support for mybatis framework",
+            "_links": {
+              "guide": {
+                "href": "https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/en/HowToUse.md",
+                "title": "MyBatis PageHelper Quick Start"
+              },
+              "reference": {
+                "href": "https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/en/HowToUse.md"
+              }
+            }
+          },
+          {
             "id": "postgresql",
             "name": "PostgreSQL Driver",
             "description": "An open source JDBC driver that allows Java programs to connect to a PostgreSQL database using standard, database independent Java code."
