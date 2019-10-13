@@ -16,6 +16,7 @@ server:
     whitelabel:
       enabled: false
   use-forward-headers: true
+  port: 9911
 
 spring:
   jackson:
@@ -467,6 +468,24 @@ initializr:
               version: 2.0.1
             - compatibilityRange: "2.1.0.RELEASE"
               version: 2.1.0
+
+        - name: MyBatis PageHelper Support
+          id: mybatis-pageHelper
+          description: Persistence framework with support for custom SQL, stored procedures and advanced mappings. MyBatis couples objects with stored procedures or SQL statements using a XML descriptor or annotations.
+          links:
+            - rel: guide
+              href: https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/en/HowToUse.md
+              description: MyBatis Pagehelper Quick Start
+            - rel: reference
+              href: https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/en/HowToUse.md
+          groupId: com.github.pagehelper
+          artifactId: pagehelper-spring-boot-starter
+          mappings:
+            - compatibilityRange: "[2.0.0.RELEASE,2.1.0.RELEASE)"
+              version: 1.2.12
+            - compatibilityRange: "2.1.0.RELEASE"
+              version: 1.2.12
+
         - name: PostgreSQL Driver
           id: postgresql
           description: A JDBC and R2DBC driver that allows Java programs to connect to a PostgreSQL database using standard, database independent Java code.
