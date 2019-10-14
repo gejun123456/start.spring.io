@@ -16,16 +16,15 @@
 
 package io.spring.start.site.extension.dependency.mybatis;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-
-import java.nio.file.Path;
-import java.nio.file.StandardOpenOption;
-
 import io.spring.initializr.generator.project.ProjectDescription;
 import io.spring.initializr.generator.project.contributor.ProjectContributor;
 import org.apache.commons.codec.Charsets;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 
 /**
  * add properties for mybatis integration.
