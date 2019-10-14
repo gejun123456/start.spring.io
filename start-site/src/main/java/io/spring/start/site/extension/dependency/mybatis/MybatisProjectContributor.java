@@ -37,42 +37,43 @@ import java.nio.file.StandardOpenOption;
  */
 public class MybatisProjectContributor implements ProjectContributor {
 
-    private ProjectDescription description;
+	private ProjectDescription description;
 
-    public MybatisProjectContributor(ProjectDescription description) {
-        this.description = description;
-    }
+	public MybatisProjectContributor(ProjectDescription description) {
+		this.description = description;
+	}
 
-    //add folder too?
-    @Override
-    public void contribute(Path projectRoot) throws IOException {
-        Path changelogDirectory = projectRoot.resolve("src/main/resources/application.properties");
-        File file = new File(changelogDirectory.toUri());
-        if (file.exists()) {
-            String content = "spring.datasource.url=jdbc:mysql://localhost:3306/helloman?serverTimezone=GMT%2b8\n" +
-                    "spring.datasource.username=root\n" +
-                    "spring.datasource.password=world\n" +
-                    "spring.datasource.driver-class-name=com.mysql.jdbc.Driver\n" +
-                    "mybatis.mapper-locations= classpath*:mapper/*.xml";
-            Files.write(changelogDirectory, content.getBytes(Charsets.UTF_8), StandardOpenOption.WRITE, StandardOpenOption.APPEND);
-            Path resolve = projectRoot.resolve("src/main/resources/mapper");
-            Files.createDirectories(resolve);
+	// add folder too?
+	@Override
+	public void contribute(Path projectRoot) throws IOException {
+		Path changelogDirectory = projectRoot.resolve("src/main/resources/application.properties");
+		File file = new File(changelogDirectory.toUri());
+		if (file.exists()) {
+			String content = "spring.datasource.url=jdbc:mysql://localhost:3306/helloman?serverTimezone=GMT%2b8\n"
+					+ "spring.datasource.username=root\n" + "spring.datasource.password=world\n"
+					+ "spring.datasource.driver-class-name=com.mysql.jdbc.Driver\n"
+					+ "mybatis.mapper-locations= classpath*:mapper/*.xml";
+			Files.write(changelogDirectory, content.getBytes(Charsets.UTF_8), StandardOpenOption.WRITE,
+					StandardOpenOption.APPEND);
+			Path resolve = projectRoot.resolve("src/main/resources/mapper");
+			Files.createDirectories(resolve);
 
-            Path sqlResolve = projectRoot.resolve("src/main/resources/mapper");
-            Files.createDirectories(sqlResolve);
+			Path sqlResolve = projectRoot.resolve("src/main/resources/mapper");
+			Files.createDirectories(sqlResolve);
 
-            String packageName = this.description.getPackageName();
+			String packageName = this.description.getPackageName();
 
-            String replace = packageName.replace(".", "/");
-            String baseFolder = "src/main/java/" + replace;
-            Files.createDirectories(projectRoot.resolve(baseFolder + "/entity"));
-            Files.createDirectories(projectRoot.resolve(baseFolder + "/mapper"));
-            Files.createDirectories(projectRoot.resolve(baseFolder + "/service"));
-        }
-    }
+			String replace = packageName.replace(".", "/");
+			String baseFolder = "src/main/java/" + replace;
+			Files.createDirectories(projectRoot.resolve(baseFolder + "/entity"));
+			Files.createDirectories(projectRoot.resolve(baseFolder + "/mapper"));
+			Files.createDirectories(projectRoot.resolve(baseFolder + "/service"));
+		}
+	}
 
-    @Override
-    public int getOrder() {
-        return 1;
-    }
+	@Override
+	public int getOrder() {
+		return 1;
+	}
+
 }

@@ -22,7 +22,6 @@ package io.spring.start.site.extension.dependency.mybatis;
 
 import io.spring.initializr.generator.buildsystem.Build;
 import io.spring.initializr.generator.buildsystem.Dependency;
-import io.spring.initializr.generator.buildsystem.DependencyScope;
 import io.spring.initializr.generator.spring.build.BuildCustomizer;
 import io.spring.initializr.generator.version.VersionReference;
 
@@ -30,13 +29,16 @@ import io.spring.initializr.generator.version.VersionReference;
  * @author bruce ge
  */
 public class MybatisBuildCustomizer implements BuildCustomizer<Build> {
-    @Override
-    public void customize(Build build) {
-        build.dependencies().add("gson", Dependency.withCoordinates("com.google.code.gson", "gson").version(VersionReference.ofValue("2.8.6")));
-    }
 
-    @Override
-    public int getOrder() {
-        return 0;
-    }
+	@Override
+	public void customize(Build build) {
+		build.dependencies().add("gson",
+				Dependency.withCoordinates("com.google.code.gson", "gson").version(VersionReference.ofValue("2.8.6")));
+	}
+
+	@Override
+	public int getOrder() {
+		return 0;
+	}
+
 }
